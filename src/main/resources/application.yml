@@ -1,1 +1,3 @@
-spring.application.name=lukina-middle-service
+spring.application.name: lukina-middle-service
+backend:
+  host: http://localhost:8089

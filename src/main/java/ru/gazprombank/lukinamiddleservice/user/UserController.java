@@ -1,5 +1,6 @@
 package ru.gazprombank.lukinamiddleservice.user;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,10 +14,11 @@ public class UserController {
     private String host;
     private RestTemplate restTemplate;
 
-    public UserController(@Value("${backend.host}") String host) {
+    @Autowired
+    public UserController(@Value("${backend.host}") String host, RestTemplate restTemplate) {
         super();
         this.host = host;
-        this.restTemplate = new RestTemplate();
+        this.restTemplate = restTemplate;
     }
     @PostMapping
     public String registerUser() {
